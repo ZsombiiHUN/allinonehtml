@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        background-color: #212121;
+        color: white;
+    }
+
+    .href {
+        font-size: 25px;
+    }
+</style>
+<body>
+    <h1 style="display: block; text-align: center; font-size: 35px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: white;">Welcome</h1>
+    <div class="image-container">
+        <img src="wallpaperflare.com_wallpaper (4).jpg" alt="F-22" style="height: 500px; width: auto; margin-left: 450px; border-radius: 15px;"> <br> <br>
+        <div class="text-overlay">F-22 Raptor</div>
+    </div>      
+    <a href="https://www.wikipedia.com" style="color: whitesmoke;" id="href">Wikipedia</a>
+    <li>
+     Lista elem 1
+    </li>
+    <li>
+    Lista elem 2
+    </li>
+    <table>
+<tr>
+    <th>Test</th>
+    <th>Test2</th>
+    <th>Test3</th>
+</tr>
+<td>test 4</td>
+<td>test 5</td>
+<td>test 6</td>
+    </table>
+
+    <div style="margin-top: 28px;"></div>
+    <label for="input1">Ide irdjon</label><br>
+    <input type="text" id="input1"></form> <br>
+    <label for="input2">Elfogadod</label>
+    <input type="radio" id="input2">
+    <br><br><br>
+    <label for="bevitel">Irja be az eletkorat</label>
+    <input type="number" id="bevitel" style="border-radius: 15px; border-color: green; border-style: double;">
+    <button onclick="check()">Kiszámolás</button>
+    <p id="kimenet1"></p>
+        <input type="text" placeholder="irjon ide valamit" id="input3">
+        <p id="kimenet2" style="color: white; margin-left: 5px;"></p>
+        <div style="margin-top: 35px;"></div>
+        <ul id="itemList"></ul>
+
+</body>
+<script>
+    var weboldal = "0"
+    const bevitelimezo = document.getElementById("input3");
+    const kijelzo = document.getElementById("kimenet2");
+    bevitelimezo.addEventListener("input", frissites)
+
+    function frissites() {
+        kijelzo.textContent = bevitelimezo.value;
+    }
+
+    function generateListItems(items) {
+  let itemIndex = 0;
+
+  while (itemIndex < items.length) {
+    const itemElement = document.createElement("li");
+    itemElement.textContent = items[itemIndex];
+    document.getElementById("itemList").appendChild(itemElement);
+    itemIndex++;
+  }
+}
+
+const items = ["Javascript", "Python", "C#"];
+generateListItems(items); 
+
+    function check() {
+        var eletkor = parseInt(document.getElementById("bevitel").value);
+        var reset = eletkor;
+while (reset > 0) {
+        if (eletkor < 18) {
+            document.getElementById("kimenet1").innerHTML = "Kiskoru";
+        } else if (eletkor < 65) {
+            document.getElementById("kimenet1").innerHTML = "Felnőtt";
+        } else {
+            document.getElementById("kimenet1").innerHTML = "Idős";
+        }
+        reset--;
+        setTimeout(function() {
+            eletkor = ""
+            document.getElementById("kimenet1").innerHTML = "";
+        }, 5000);
+    }
+}
+</script>
+</html>
